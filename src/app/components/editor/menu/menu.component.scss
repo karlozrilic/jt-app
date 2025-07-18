@@ -1,0 +1,18 @@
+.menu-item {
+    display: block;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    background: #ffffff;
+    color: #0f172a;
+
+    .menu-section {
+        border: 1px solid #cbd5e1;
+        border-top: 0;
+        border-left: 0;
+        border-bottom: 0;
+
+        &:last-child {
+            border: 0;
+        }
+    }
+}

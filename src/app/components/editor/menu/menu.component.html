@@ -1,0 +1,49 @@
+<div class="menu-item">
+    <div class="flex flex-row items-center justify-center">
+        @for (section of data; track section) {
+            <div class="menu-section flex flex-row items-center gap-2 p-3">
+                <div>{{ section['title'] }}</div>
+                @for (item of section['items']; track item) {
+                    @switch (item['type']) {
+                        @case ('select') {
+                            <p-floatlabel class="w-full md:w-56" variant="on">
+                                <p-select [options]="item['data']" [(ngModel)]="item['selectedData']" optionLabel="name"  class="w-full md:w-56" />
+                                <label for="on_label">{{ item.label }}</label>
+                            </p-floatlabel>
+                        }
+                        @case ('number') {
+                            <span>{{ item.label }}</span>
+                            <p-inputnumber [(ngModel)]="item['data']" [showButtons]="true" buttonLayout="horizontal" inputId="horizontal" spinnerMode="horizontal" [step]="1" [min]="1" [max]="30" [contentEditable]="false">
+                                <ng-template #incrementbuttonicon>
+                                    <span class="pi pi-plus"></span>
+                                </ng-template>
+                                <ng-template #decrementbuttonicon>
+                                    <span class="pi pi-minus"></span>
+                                </ng-template>
+                            </p-inputnumber>
+                        }
+                        @case ('toggle') {
+                            <div class="flex flex-row items-center gap-3">
+                                <span>{{ item['label'] }}</span>
+                                <p-toggleswitch [(ngModel)]="item['data']" />
+                            </div>
+                        }
+                        @case ('colors') {
+                            <div class="flex flex-row items-center gap-3">
+                                <p-colorpicker #fp [(ngModel)]="item['foregroundColor']" appendTo="body" inputId="foreground" />
+                                <p-colorpicker #bp [(ngModel)]="item['backgroundColor']" appendTo="body" />
+                            </div>
+                        }
+                        @default {
+                            <a pRipple class="flex items-center p-menubar-item-link" [pTooltip]="item.tooltip" [tooltipPosition]="item.tooltipPosition ? item.tooltipPosition : 'bottom'">
+                                <span *ngIf="item.icon" [classList]="item.icon"></span>
+                                <span *ngIf="item.label">{{ item.label }}</span>
+                                <span *ngIf="item['shortcut']" class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1">{{ item['shortcut'] }}</span>
+                            </a>
+                        }
+                    }
+                }
+            </div>
+        }
+    </div>
+</div>

@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@use "tailwindcss";
+@plugin "tailwindcss-primeui";
+@import "primeicons/primeicons.css";
+// @custom-variant dark (&:where(.my-app-dark, .my-app-dark *));     //dark mode configuration
+
+*, html {
+    color-scheme: light;
+}
+
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
