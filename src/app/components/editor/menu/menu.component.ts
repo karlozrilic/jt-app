@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MenubarModule } from 'primeng/menubar';
@@ -12,7 +12,7 @@ import { FloatLabel } from "primeng/floatlabel"
 import { InputNumberModule } from 'primeng/inputnumber';
 import { PanelModule } from 'primeng/panel';
 import { ToggleSwitch } from 'primeng/toggleswitch';
-import { ColorPicker, ColorPickerChangeEvent } from 'primeng/colorpicker';
+import { ColorPicker } from 'primeng/colorpicker';
 
 @Component({
     selector: 'app-menu',
@@ -38,25 +38,4 @@ import { ColorPicker, ColorPickerChangeEvent } from 'primeng/colorpicker';
 export class MenuComponent {
     @Input() data: MenuItem[] | undefined;
     @Input() title: string | undefined;
-
-    @ViewChild('fp') foregroundPickerRef!: any;
-    @ViewChild('bp') backgroundPickerRef!: any;
-
-    handleFocus() {
-        // Get the input element inside the color picker
-        const fpEl: HTMLInputElement = this.foregroundPickerRef.el.nativeElement.querySelector('input');
-        const bpEl: HTMLInputElement = this.backgroundPickerRef.el.nativeElement.querySelector('input');
-
-        fpEl.blur()
-        bpEl.blur()
-        console.log(this.foregroundPickerRef)
-
-        if (this.foregroundPickerRef.overlayVisible) {
-            // this.foregroundPickerRef.hide();
-        }
-
-        if (this.backgroundPickerRef.overlayVisible) {
-            // this.backgroundPickerRef.hide();
-        }
-    }
 }
