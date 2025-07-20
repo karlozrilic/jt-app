@@ -1,0 +1,1 @@
+declare type Format = 'v1' | 'v2' | 'png';

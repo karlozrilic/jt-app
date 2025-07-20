@@ -11,3 +11,21 @@
 * {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
+
+.p-colorpicker {
+    border: 1px solid #000000;
+    border-radius: 5px;
+    cursor: pointer;
+
+    input.p-disabled {
+        opacity: 1;
+    }
+}
+
+.p-button-transparent {
+    button {
+        background: transparent;
+        border: 1px solid transparent;
+        color: #000000;
+    }
+}

@@ -1,0 +1,113 @@
+<div class="menu-item">
+    <div class="flex flex-row items-center justify-center">
+
+        <div class="menu-section flex flex-row items-center gap-2 p-3">
+            <div>View</div>
+            <span>Pixel size</span>
+            <p-inputnumber
+                [(ngModel)]="pixelSize"
+                [showButtons]="true"
+                buttonLayout="horizontal"
+                inputId="horizontal"
+                spinnerMode="horizontal"
+                [step]="1"
+                [min]="1"
+                [max]="30"
+                [contentEditable]="false"
+            >
+                <ng-template #incrementbuttonicon>
+                    <span class="pi pi-plus"></span>
+                </ng-template>
+                <ng-template #decrementbuttonicon>
+                    <span class="pi pi-minus"></span>
+                </ng-template>
+            </p-inputnumber>
+            <div class="flex flex-row items-center gap-3">
+                <span>Auto</span>
+                <p-toggleswitch [(ngModel)]="autoToggle" />
+            </div>
+            <div class="flex flex-row items-center gap-3">
+                <span>Grid</span>
+                <p-toggleswitch [(ngModel)]="gridToggle" />
+            </div>
+        </div>
+
+        <div class="menu-section flex flex-row items-center gap-2 p-3">
+            <div>Colors</div>
+            <div class="flex flex-row items-center gap-3">
+                <p-colorpicker
+                    [(ngModel)]="foregroundColor"
+                    appendTo="body"
+                    pTooltip="Click to select foreground color (used for left-click drawing)"
+                    tooltipPosition="bottom"
+                    tooltipEvent="hover"
+                    [disabled]="colorFormat == '3-bit' ? true : false"
+                    (click)="colorpickerClick($event, foregroundPopover)"
+                >
+                    <p-popover #foregroundPopover>
+                        <div class="flex flex-col gap-4 w-[10rem]">
+                            <div>
+                                <span class="font-medium block mb-2">Select color</span>
+                                <ul class="list-none p-0 m-0 flex flex-col">
+                                    <li
+                                        *ngFor="let color of avaliableColors"
+                                        class="flex items-center gap-2 px-2 py-3 hover:bg-emphasis cursor-pointer rounded-border"
+                                        [ngClass]="foregroundColor == color.value ? 'bg-highlight-emphasis' : ''"
+                                        (click)="selectColor(color, foregroundPopover, 'foreground')"
+                                    >
+                                        <div [style]="'width: 32px; height: 32px; border: 1px solid #000000; border-radius: 4px; background-color: ' + color.value"></div>
+                                        <div>
+                                            <span class="font-medium">{{ color.name }}</span>
+                                            <div class="text-sm text-surface-500 dark:text-surface-400">{{ color.value }}</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </p-popover>
+                </p-colorpicker>
+                <p-colorpicker
+                    [(ngModel)]="backgroundColor"
+                    appendTo="body"
+                    pTooltip="Click to select background color (used for right-click drawing)"
+                    tooltipPosition="bottom"
+                    tooltipEvent="hover"
+                    [disabled]="colorFormat == '3-bit' ? true : false"
+                    (click)="colorpickerClick($event, backgroundPopover)"
+                >
+                    <p-popover #backgroundPopover>
+                        <div class="flex flex-col gap-4 w-[10rem]">
+                            <div>
+                                <span class="font-medium block mb-2">Select color</span>
+                                <ul class="list-none p-0 m-0 flex flex-col">
+                                    <li
+                                        *ngFor="let color of avaliableColors"
+                                        class="flex items-center gap-2 px-2 py-3 hover:bg-emphasis cursor-pointer rounded-border"
+                                        [ngClass]="backgroundColor == color.value ? 'bg-highlight-emphasis' : ''"
+                                        (click)="selectColor(color, backgroundPopover, 'background')"
+                                    >
+                                        <div [style]="'width: 32px; height: 32px; border: 1px solid #000000; border-radius: 4px; background-color: ' + color.value"></div>
+                                        <div>
+                                            <span class="font-medium">{{ color.name }}</span>
+                                            <div class="text-sm text-surface-500 dark:text-surface-400">{{ color.value }}</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </p-popover>
+                </p-colorpicker>
+            </div>
+            <a
+                pRipple
+                class="flex items-center p-menubar-item-link"
+                pTooltip="Swap the foreground and background colors"
+                tooltipPosition="bottom"
+                (click)="swapColors()"
+            >
+                <span [classList]="'pi pi-arrow-right-arrow-left'"></span>
+            </a>
+        </div>
+
+    </div>
+</div>

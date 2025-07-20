@@ -1,0 +1,1 @@
+declare type ColorFormat = '3-bit' | '24-bit';
