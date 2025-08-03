@@ -1,6 +1,10 @@
 <p-menubar [model]="items">
     <ng-template #start>
-        svg logo here
+        <div class="flex gap-3">
+            <fa-icon [icon]="faPaintBrush"></fa-icon>
+            <h1 class="text-xl font-bold">JT Editor</h1>
+        </div>
+        
     </ng-template>
     <ng-template #item let-item let-root="root">
         @if (item.routerLink) {

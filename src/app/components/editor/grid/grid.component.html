@@ -1,0 +1,18 @@
+<div class="custom-grid" [style]="'grid-template-columns: repeat(' + sizeValue.width + ', ' + pixelSize +'px);'" (contextmenu)="$event.preventDefault()">
+    @for (row of grid; track row) {
+        @for (cell of row; track cell) {
+            <div
+                #gridCell
+                class="grid-cell"
+                [style]="'width:' + pixelSize + 'px; height:' + pixelSize + 'px; background-color:' + cell.color + ';'"
+                [attr.data-row]="cell.y"
+                [attr.data-column]="cell.x"
+                (contextmenu)="$event.preventDefault()"
+                (mousedown)="onMouseDown($event)"
+                (mousemove)="onMouseMove($event)"
+                (mouseup)="onMouseUp($event)"
+
+            ></div>
+        }
+    }
+</div>

@@ -16,7 +16,7 @@ export class EditorService {
     });
     mode: BehaviorSubject<Mode> = new BehaviorSubject<Mode>('static');
     colorFormat: BehaviorSubject<ColorFormat> = new BehaviorSubject<ColorFormat>('3-bit');
-    pixelSize: BehaviorSubject<number> = new BehaviorSubject<number>(13);
+    pixelSize: BehaviorSubject<number> = new BehaviorSubject<number>(33);
     autoToggle: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
     gridToggle: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
     foregroundColor: BehaviorSubject<HEX> = new BehaviorSubject<HEX>('#FF0000');

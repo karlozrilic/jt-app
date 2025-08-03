@@ -5,14 +5,17 @@ import { MenuItem } from 'primeng/api';
 import { BadgeModule } from 'primeng/badge';
 import { AvatarModule } from 'primeng/avatar';
 import { Ripple } from 'primeng/ripple';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faPaintBrush, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, MenubarModule, BadgeModule, AvatarModule, Ripple],
+  imports: [CommonModule, MenubarModule, BadgeModule, AvatarModule, Ripple, FontAwesomeModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+    faPaintBrush: IconDefinition = faPaintBrush;
     items: MenuItem[] | undefined;
 
     ngOnInit() {

@@ -12,6 +12,10 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
+app-editor {
+    width: 100%;
+}
+
 .p-colorpicker {
     border: 1px solid #000000;
     border-radius: 5px;
@@ -28,4 +32,30 @@
         border: 1px solid transparent;
         color: #000000;
     }
+}
+
+.custom-panel {
+    border-radius: 0;
+    border-top: 0;
+
+    .p-panel-content {
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        height: 55px;
+        max-height: 55px;
+    }
+}
+
+.center-panel {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.grid-container {
+    background-color: #868686;
+    flex: 1 1 auto;
+    overflow: auto;
+    padding: 10px;
 }
